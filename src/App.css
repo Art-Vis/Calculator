@@ -1,0 +1,104 @@
+:root {
+	--fs-input: 24px;
+	--fs-btn: 24px;
+	--input-height: 30px;
+	--btn-width: 50px;
+	--btn-height: 50px;
+	--btn-gap: 10px;
+	--buttons-max-width: ((var(--btn-width) * 4) + (var(--btn-gap) * 3));
+	--buttons-height: ((var(--btn-height) * 5) + (var(--btn-gap) * 4));
+}
+
+.calculator {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 15px;
+}
+
+.calculator__title {
+	color: #fff;
+}
+
+.calculator__input {
+	border: none;
+	background-color: transparent;
+	height: var(--input-height);
+	width: 100%;
+	font-size: var(--fs-input);
+	color: #fff;
+}
+
+.buttons {
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+	position: relative;
+	width: 100%;
+}
+
+.buttons__item {
+	font-size: var(--fs-btn);
+	transition: all 0.3s ease-in-out;
+}
+
+.buttons__symbol {
+	display: grid;
+	position: relative;
+	grid-template-columns: repeat(4, var(--btn-width));
+	grid-template-rows: repeat(5, var(--btn-width));
+	gap: var(--btn-gap);
+}
+
+.buttons__symbol-item {
+	display: flex;
+	width: var(--btn-width);
+	height: var(--btn-height);
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(189, 184, 184);
+	border-radius: 50%;
+	color: #fff;
+}
+
+.buttons__symbol-item:nth-child(n + 4) {
+	display: grid;
+	grid-column: 4/4;
+}
+
+.buttons__symbol-item:nth-child(9) {
+	display: grid;
+	grid-row: 5;
+	grid-column: 1/1;
+	z-index: 2;
+}
+
+.buttons__symbol-item:hover {
+	background-color: #d8d8d8;
+}
+
+.buttons__number {
+	display: flex;
+	position: absolute;
+	justify-content: end;
+	top: calc(var(--btn-height) + var(--btn-gap));
+	gap: var(--btn-gap);
+	max-width: calc((var(--btn-width) * 3) + (var(--btn-gap) * 2));
+	flex-wrap: wrap;
+}
+
+.buttons__number-item {
+	display: flex;
+	width: var(--btn-width);
+	height: var(--btn-height);
+	justify-content: center;
+	align-items: center;
+	background-color: gray;
+	border-radius: 50%;
+	color: #fff;
+}
+
+.buttons__number-item:hover {
+	background-color: rgb(150, 150, 150);
+}
